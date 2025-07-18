@@ -32,13 +32,13 @@ const ProductGrid = ({ products, searchTerm }) => {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ py: 3 }}>
+    <Container maxWidth="xl" sx={{ py: 3, px: { xs: 1, sm: 3 } }}>
       {filteredProducts.length === 0 ? (
         <Paper sx={{ p: 3, textAlign: "center" }}>
           <Typography variant="h6">No products found</Typography>
         </Paper>
       ) : (
-        <Grid container spacing={3}>
+        <Grid container spacing={{ xs: 1, sm: 2, md: 3 }}>
           {filteredProducts.map((product) => (
             <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
               <ProductCard

@@ -36,13 +36,17 @@ function AppContent() {
           sx={{
             display: "flex",
             alignItems: "flex-start",
-            flexDirection: showComparison ? "row" : "column",
+            flexDirection: {
+              xs: "column",
+              md: showComparison ? "row" : "column",
+            },
+            px: { xs: 1, sm: 2 },
           }}
         >
           <Box
             sx={{
-              width: showComparison ? "70%" : "100%",
-              pr: showComparison ? 2 : 0,
+              width: { xs: "100%", md: showComparison ? "70%" : "100%" },
+              pr: { xs: 0, md: showComparison ? 2 : 0 },
             }}
           >
             {isLoading ? (
@@ -54,9 +58,10 @@ function AppContent() {
           {showComparison && (
             <Box
               sx={{
-                width: "30%",
-                position: "sticky",
+                width: { xs: "100%", md: "30%" },
+                position: { xs: "static", md: "sticky" },
                 top: 80,
+                mt: { xs: 2, md: 0 },
               }}
             >
               <ComparisonView />

@@ -35,13 +35,22 @@ const Navbar = ({ onSearch }) => {
       sx={{ backgroundColor: "#ecda93", color: "#000" }}
       elevation={2}
     >
-      <Toolbar>
+      <Toolbar sx={{ flexWrap: { xs: "wrap", sm: "nowrap" } }}>
         <Box sx={{ display: "flex", alignItems: "center", flexGrow: 0 }}>
           <img src={logo} alt="Logo" style={{ height: 40, marginRight: 10 }} />
         </Box>
 
-        <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
-          <Box sx={{ width: "50%", minWidth: "300px" }}>
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            justifyContent: "center",
+            order: { xs: 3, sm: 1 },
+            width: { xs: "100%", sm: "auto" },
+            mt: { xs: 1, sm: 0 },
+          }}
+        >
+          <Box sx={{ width: { xs: "100%", sm: "300px", md: "400px" } }}>
             <TextField
               fullWidth
               variant="outlined"
@@ -71,7 +80,11 @@ const Navbar = ({ onSearch }) => {
           </Box>
         </Box>
 
-        <IconButton onClick={toggleTheme} color="inherit">
+        <IconButton
+          onClick={toggleTheme}
+          color="inherit"
+          sx={{ order: { xs: 2, sm: 1 } }}
+        >
           {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
         </IconButton>
       </Toolbar>

@@ -42,12 +42,14 @@ const ComparisonView = () => {
   const skeletonRows = 5;
 
   return (
-    <Paper sx={{ p: 3, my: 3 }}>
+    <Paper sx={{ p: { xs: 1, sm: 3 }, my: { xs: 1, sm: 3 } }}>
       <Box
         display="flex"
         justifyContent="space-between"
         alignItems="center"
         mb={2}
+        flexDirection={{ xs: "column", sm: "row" }}
+        gap={{ xs: 1, sm: 0 }}
       >
         {isLoading ? (
           <Skeleton width={200} height={32} />
@@ -62,6 +64,7 @@ const ComparisonView = () => {
             color="error"
             onClick={clearComparison}
             startIcon={<CloseIcon />}
+            sx={{ textTransform: "capitalize" }}
           >
             Clear All
           </Button>

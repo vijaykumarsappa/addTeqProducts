@@ -43,10 +43,18 @@ const ProductCard = ({ product, isSelected, onKeyDown }) => {
         display: "flex",
         flexDirection: "column",
         border: isSelected
-          ? "2px solid #1976d2"
+          ? "2px solid rgb(253, 116, 1)"
           : "1px solid rgba(0, 0, 0, 0.12)",
-        boxShadow: isSelected ? "0 0 10px rgba(25, 118, 210, 0.5)" : "none",
-        transition: "all 0.3s ease",
+        boxShadow: isSelected ? "0 0 10px rgb(253, 116, 1)" : "none",
+        transition:
+          "transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease",
+        transform: "scale(1)",
+        "&:hover": {
+          transform: "scale(1.03)",
+          boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)",
+          border: "1px solid rgba(253, 116, 1, 0.5)",
+          zIndex: 2,
+        },
       }}
     >
       <CardMedia
